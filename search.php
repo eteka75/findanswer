@@ -153,12 +153,12 @@ include './includes/header.php';
             serviceUrl: './ajax/suggestions.php',
             dataType: 'json',
             onSelect: function (suggestion) {
-                //$(this).parent().find('form').submit();
+                $("#rechercheform").submit();
                 //$('#selction-ajax').html('You selected: ' + suggestion.slug + ', ' + suggestion.data);
+                //$('#rechercheforms').submit();
             }
 
         });
-
     });
     var face = true;
     $(".basculer").click(function () {
