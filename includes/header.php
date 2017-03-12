@@ -245,7 +245,18 @@ and open the template in the editor.
                 margin-left: 2%;
                 padding-bottom: 30px;
                 /*background: red;*/
-                height: 500px; 
+                min-height: 500px; 
+            }
+            #bloc_middle2{
+                min-width: 60%;
+                max-width: 80%;
+                /*margin:0 auto 70px;*/
+                margin-left: auto;
+                margin-right: auto;
+                background: #fff;
+                padding-bottom: 30px;
+                /*background: red;*/
+                min-height: 500px; 
             }
             .menu-onglet2,.menu-onglet{
                 margin: 15px 0 0;
@@ -259,7 +270,20 @@ and open the template in the editor.
             .menu-onglet2 a,.menu-onglet li a{
                 color: #333333;
                 text-decoration: none;
-                font-size: 14px;
+                font-size: 16px;
+            }
+            .questionpage{
+                color: #1d2129;
+                font-size: 32px;
+                font-weight: bold;
+                line-height: 40px;
+                margin-bottom: 4px;
+                border-bottom: 0px solid #ccc;
+                padding: 0 0 15px;
+                margin: 0;
+            }
+            .info-image{
+                max-width: 200px;
             }
             .menu-onglet li.active a{
                 color: #2e91c3
@@ -271,13 +295,22 @@ and open the template in the editor.
                 border-left: 4px solid #f44336;
                 font-weight: bold;
             }
-            .menu-onglet2 >li{
+            .menu-onglet2 {width: auto;}
+            .menu-onglet2 >li>ul>li,.menu-onglet2 >li{
                 list-style-type: none;
+            }
+            .menu-onglet2 >li{
+
                 padding: 5px 10px;
                 font-weight: 500;
             }
-            .menu-onglet2 >li:hover{
-                background: #f5f5f5;
+            .menu-onglet2 >li>ul{
+                padding:5px 0px ;
+                font-size: 14px;
+            }
+            .menu-onglet2 >li>ul>li,.menu-onglet2 >li>ul>li a{
+                color: #6abce0;
+                line-height: 25px;
             }
             .menu-onglet li:hover a{
                 color: #2e91c3;
@@ -298,14 +331,56 @@ and open the template in the editor.
                 min-height: 120%;
                 border-right: 1px solid #ddd;
             }
-            .bloc_content>div{padding:10px}
+            .bloc_menu2{
+                //box-shadow:0 0 10px 0 rgba(0,0,0,.125);
+                min-height: 550px;
+                max-width: 300px;
+                min-width: 220px;
+                background: #fff
+            }
+            .bloc_menu{
+                border-right: 0px solid #ddd;
+            }
+            .bloc_content2>div.bloc_content>div{padding:10px}
             .bloc_content{
                 min-width: 550px;
                 float: left;
                 min-height: 120%;
                 width: auto;
-                background: #f9f9f9;
+                background: #ffffff;
                 padding-bottom: 50px;
+                padding: 10px 20px;
+
+            }
+            .bloc_content2 a{
+                color: #367cc2;
+            }
+            .bloc_content2{
+              //  box-shadow:0 0 10px 0 rgba(0,0,0,.125);
+                width: auto;
+                 float: left;
+                 padding: 10px 20px;
+                 background: #ffffff;
+                 min-height: 550px;
+                 border-left:1px solid #dddddd;
+                     color: #4b4f56;
+                font-size: 18px;
+                line-height: 24px;
+                max-width: 600px;
+            }
+            .categorie-page{
+                background: -webkit-linear-gradient(#fff,#f6f7fa);
+                background: linear-gradient(#fff,#f6f7fa);
+                padding: 0px 10%;
+                text-align: center;
+                font-weight: 100;
+                z-index: 50000;
+            }
+            .categorie-page h3{                
+                font-size: 28px;
+                line-height: 30px;
+                margin: 0px 0;
+                padding: 10px 0 15px;
             }
             .bloc_search{
                 padding:  0;
@@ -585,7 +660,7 @@ and open the template in the editor.
                 /*background: #fff;*/
             }
             .cadre-entreprise{
-                min-height: 200px;
+                min-height: 100px;
                 background:  #555;
                 color: #fefefe;
                 padding: 10px 0 20px;
@@ -594,8 +669,9 @@ and open the template in the editor.
                 font-size: 35px;
                 text-align: center;
                 display: block;
+                margin: 0;
                 margin:0px 0;
-                padding-top: 30px;
+                padding-top: 10px;
             }
           .question_liste2,  .question_liste2 a{
                 margin: 0;
@@ -617,6 +693,14 @@ and open the template in the editor.
                /* background: #FFF;
                 box-shadow: rgba(10, 10, 10, 0.0980392) 0px 2px 3px;*/
                 margin-bottom: 3px;
+            }
+            .no-content{
+                font-size: 18px;
+                text-align: center;
+                min-height: 300px;
+                padding: 20px ;
+                color: #999999;
+                margin: auto;
             }
             .card,.card2{
                 max-width: 600px;

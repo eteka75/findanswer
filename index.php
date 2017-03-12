@@ -5,11 +5,14 @@ $titre = 'Tout ce que vous recherchez sur vos entreprises';
 include './includes/config.php';
 include './includes/header.php';
 
-$db = connect(); 
+//$db = connect(); 
 print_r($db);
+$pdo= new PDO('sqlite:/lib/qr.db');
+print_r($pdo);
 /* Connexion à la base de donnée */
 //$entreprises = $db->select("entreprises", '1', 'ORDER BY created_at');
 ?>
+
 <div class="body_gradient">
     <form id="rechercheforms" action="search.php" method="GET">
         <div  class="bloc_auto">

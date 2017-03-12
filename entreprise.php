@@ -33,8 +33,13 @@ if(isset($_GET['id'])){
        // print_r($les_types);
         if(isset($_GET['type_id'])){
             $typeid=(int)trim($_GET['type_id']);
-            $les_questions=$db->select('questions,entreprise_question',"questions.id=entreprise_question.question_id AND type_id='".$typeid."' AND entreprise_id='".$ent_id."'");
-            
+            $les_questions=$db->select('questions'," id IN (select question_id FROM entreprise_question WHERE type_id='".$typeid."' AND entreprise_id='".$ent_id."')");
+
+            $letypes=$db->select('types',"id='".$typeid."'",'limit 1');
+            $letype=NULL;
+            if(count($letypes)){
+                $letype=$letypes[0];
+            }
         }
     }
 }
@@ -56,15 +61,37 @@ require_once './includes/header_search.php';
     <img class="img-logo-profil" id="coverImage" src="<?= ($logo) ?>" alt="<?= $user['nom'] ?>">
     <h1><?=$unom;?></h1>
 </div>
-<div id="bloc_middle">
-    <div class="bloc_menu">
+<div class="categorie-page">
+    <?php
+        $typeCat=isset($letype['nom'])?$letype['nom']:'';
+        if(isset($typeCat)){
+             echo"<h3 class='m0 pad0'>".$typeCat."</h3>";
+        }
+        ?>
+</div>
+<div id="bloc_middle2" class="body_gradient">
+    <div class="bloc_menu bloc_menu2">
         <ul class="menu-onglet2">
         <?php
         foreach ($les_types as  $v) {
-     // print_r($v['']);
+     // print_r($les_types);
         ?>
             <li class="active">
                 <a href="entreprise.php?id=<?=($ent_id)?$ent_id:'0';?>&type_id=<?=(isset($v['id']))?$v['id']:'0';?>"><?=(isset($v['nom']))?$v['nom']:'';?></a>
+                <?php
+                if(isset($_GET['type_id']) &&  trim($_GET['type_id'])==$v['id']){
+                    if(isset($les_questions) && count($les_questions)){
+                    echo "<ul>";
+                    foreach ($les_questions as $val) {
+                        //Pour chaque type de question, on charges les questions associées
+                        ?>
+                        <li><a href="entreprise.php?id=<?=($ent_id)?$ent_id:'0';?>&type_id=<?=(isset($v['id']))?$v['id']:'0';?>&q_id=<?=(isset($val['id']))?$val['id']:'0';?>"><b>&Square;</b> <?=(isset($val['libelle']))?$val['libelle']:'';?></a></li>
+                       <?php
+                    }
+                    echo "</ul>";
+                    }
+                }
+                ?>
             </li>
             <?php
              # code...
@@ -73,13 +100,58 @@ require_once './includes/header_search.php';
             
         </ul>
     </div>
-    <div class="bloc_content bgf">
+
+    <div class="bloc_content2 bgf">
+    
+    <div>
+
         <?php
-        print_r($les_questions);
-        foreach ($les_questions as $v) {
-            # code...
+        $typeCat=isset($letype['nom'])?$letype['nom']:'';
+        
+        //print_r($les_questions);
+        if(isset($_GET["id"],$_GET["type_id"],$_GET["q_id"])){
+            $id=(int)trim($_GET['id']);
+            $type_id=(int)trim($_GET['type_id']);
+            $q_id=(int)trim($_GET['q_id']);
+            $reponses=$db->executeSelect('entreprise_question,questions','DISTINCT entreprise_question.reponse,questions.libelle',"questions.id=entreprise_question.question_id AND (entreprise_id='".$id."' AND type_id='".$type_id."' AND question_id='".$q_id."')",'limit 1')->fetchAll();
+            $reponse=NULL;
+           // print_r($reponses);
+            if(count($reponses)){
+                $reponse=$reponses[0];
+                //Recherche et affichage de la réponse
+                //print_r($reponse['libelle']);
+                ?>
+                <h1 class="questionpage"><?=(isset($reponse['libelle']))?$reponse['libelle']:'';?></h1>
+                <div>
+                <?=(isset($reponse['reponse']))?$reponse['reponse']:'';?>
+                </div>
+                <?php
+            }else{
+                echo "<div class='no-content'>
+                    <h1>Aucune réponse disponible</h1>
+                </div>" ;
+            }
+        }else{
+            ?>
+            <div class="no-content ">
+            <img src="assets/images/icon-bulb.png" class="info-image" alt="Welcome">
+            <h3>Bienvenue sur la page d'information de <?=''?></h3>
+            <p class="text-center">Vous retrouverez ici toutes les informations relatives à notre structure  </p>
+            
+            <div class="text-left ">
+            <h3>Etapes à suivre: </h3>
+            <ul>
+                <li>Choissisez la catégorie de votre choix</li>
+                <li>Sélectionnez l'une des questions </li>
+                <li>Consultez la réponse proposée</li>
+            </ul>
+            </div>
+            </div>
+            <?php
         }
+
         ?>
+         </div>
     </div>
     </div>
     <script type="text/javascript" src="assets/js/color-thief.js"></script>
