@@ -61,14 +61,13 @@ require_once './includes/header_search.php';
     <img class="img-logo-profil" id="coverImage" src="<?= ($logo) ?>" alt="<?= $user['nom'] ?>">
     <h1><?=$unom;?></h1>
 </div>
-<div class="categorie-page">
+
     <?php
         $typeCat=isset($letype['nom'])?$letype['nom']:'';
-        if(isset($typeCat)){
-             echo"<h3 class='m0 pad0'>".$typeCat."</h3>";
+        if(isset($typeCat) && $typeCat!=''){
+             echo"<div class='categorie-page'><h3 class='m0 pad0'>".$typeCat."</h3></div>";
         }
         ?>
-</div>
 <div id="bloc_middle2" class="body_gradient">
     <div class="bloc_menu bloc_menu2">
         <ul class="menu-onglet2">

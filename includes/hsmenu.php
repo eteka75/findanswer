@@ -8,7 +8,7 @@
     <li  <?= (isset($p)&& $p=='rep')?"class='active'":''?>>
         <a href="reponses.php">Mes Propositions</a>
     </li>
-    <li  <?= (isset($p)&& $p=='stat')?"class='active'":''?>>
+    <!--li  <?= (isset($p)&& $p=='stat')?"class='active'":''?>>
         <a href="statistiques.php">Statistiques</a>
-    </li>
+    </li-->
 </ul>

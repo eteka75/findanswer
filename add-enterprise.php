@@ -72,7 +72,7 @@ include './includes/header.php'; /* inlusion de l'entete */
     require_once './includes/header_search.php';
     ?>
 </div>
-<div class="bge pad10">
+<div class=" pad10">
     <form method="post" action="add-enterprise.php" enctype="multipart/form-data">
         <div class="bloc_middle ">
             <div class="card no-shadow">
@@ -134,9 +134,11 @@ include './includes/header.php'; /* inlusion de l'entete */
                 </fieldset>
                 <div class="text-center">
                     <br>
-                    <input  class="btn2 " name="add-ent" type="submit" value="Valider mon inscription" >
-                    <hr class="mhr">
-                    <a href="index.php" class="">Retour à l'accueil</a>
+                    <input  class="btn2 " name="add-ent" type="submit" value="Créer un compte " >
+                    <br><br>
+                    <ul class="text- text-muted inline">
+                        <li class="no-link"><a href="login.php">J'ai déjà un compte, Me connecter</a></li>
+                    </ul>
                 </div>
             </div>
         </div>

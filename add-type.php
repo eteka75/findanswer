@@ -24,10 +24,10 @@ if (isset($_POST['add-type'])) {/* Traitemnt du formulaire */
         $error[] = "Le nom du type n'est pas valide (entre 3 et 250 caractères)";
         $is_valide = FALSE;
     }
-    if (strlen($img) <= 1) {
+    /*if (strlen($img) <= 1) {
         $error[] = "Veuillez ajouter une image décrivant votre type d'activité";
         $is_valide = FALSE;
-    }
+    }*/
     if ($is_valide) {
         $img = isset($_FILES['img']['name']) ? Telecharger('type', "uploads/types", 350) : '';
         $type = array(
@@ -82,7 +82,7 @@ include './includes/header.php';
 
                         <div>
                             <label class="text-mini">Photo</label>
-                            <input type="file" name="img" required="true" class="control">
+                            <input type="file" name="img"  class="control">
                         </div>
                         <div>
 

@@ -34,7 +34,7 @@ if (isset($_POST['add-quest'])) {
         $error[] = 'Cette question existe déjà. Merci de saisir une nouvelle question';
     }
     $quest = array(
-        'libelle' => $question
+        'libelle' => addslashes($question)
     );
     if ($error == NULL) {
         $id_question = 0;

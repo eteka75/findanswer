@@ -94,8 +94,8 @@ and open the template in the editor.
 
             }
             .img-logo-profil{
-                max-height: 100px;
-                max-width: 200px;
+                //max-height: 100px;
+                max-width: 150px;
                 border-radius: 50%;
                 margin: 10px auto;
             }
@@ -177,7 +177,7 @@ and open the template in the editor.
             }
 
             .m-table>tbody>tr>td{
-                white-space: nowrap;
+               // white-space: nowrap;
             }
             .m-table tr:last-child,.m-table tr td:last-child{
                 border-bottom: 1px dotted #ccc;
@@ -240,12 +240,18 @@ and open the template in the editor.
             }
             #bloc_middle{
                 min-width: 40%;
-                max-width: 100%;
+                max-width: 80%;
                 /*margin:0 auto 70px;*/
-                margin-left: 2%;
+                margin-left: 3%;
                 padding-bottom: 30px;
-                /*background: red;*/
                 min-height: 500px; 
+            }
+            .list-question{
+                padding: 5px 8px;
+                border-bottom: 1px solid #eee;
+            }
+            .list-question:nth-child(odd){
+                background: #f5f5f5;
             }
             #bloc_middle2{
                 min-width: 60%;
@@ -270,7 +276,7 @@ and open the template in the editor.
             .menu-onglet2 a,.menu-onglet li a{
                 color: #333333;
                 text-decoration: none;
-                font-size: 16px;
+                font-size: 14px;
             }
             .questionpage{
                 color: #1d2129;
@@ -347,6 +353,7 @@ and open the template in the editor.
                 float: left;
                 min-height: 120%;
                 width: auto;
+                max-width: 600px;
                 background: #ffffff;
                 padding-bottom: 50px;
                 padding: 10px 20px;
@@ -509,9 +516,9 @@ and open the template in the editor.
                 */
             }
             .btn2{
-                background: #16da1f;
-                border: 1px solid #8BC34A;
-                text-shadow: 0 1px 0px #000000;
+                background: #0c9e13;
+                border: 1px solid #13a01a;
+                /*text-shadow: 0 1px 0px #000000;*/
             }
             .block{
                 display: block;
@@ -719,6 +726,7 @@ and open the template in the editor.
             .no-shadow{
                 box-shadow: none !important;
                 margin-top: 0px;
+                border-width: 0;
             }
             .autocomplete-suggestions { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; border: 1px solid #999; background: #FFF; cursor: default; overflow: auto; -webkit-box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64); -moz-box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64); box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64); }
             .autocomplete-suggestion { padding: 5px 5px; white-space: nowrap; overflow: hidden; text-overflow:ellipsis;}
