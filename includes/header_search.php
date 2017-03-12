@@ -1,5 +1,5 @@
 <div class="bloc_search_head">
-    <form id="rechercheforms" method="GET" action="search.php">
+    <form method="GET" action="search.php">
         <div id="bloc_head_search">
             <div class="bloc_logo1"> 
                 <a href="index.php"><img id="mini-logo" src="./assets/images/FindAnswer_All.png" alt="Find Answers"></a>
@@ -38,3 +38,18 @@
         </div>
     </form>
 </div>
+<script>
+    $(function () {
+        'use strict';
+        $('#search-entreprise').autocomplete({
+            serviceUrl: './ajax/suggestions.php',
+            dataType: 'json',
+            onSelect: function (suggestion) {
+                $("#rechercheform").submit();
+                //$('#selction-ajax').html('You selected: ' + suggestion.slug + ', ' + suggestion.data);
+                $('#rechercheforms').submit();
+            }
+
+        });
+    });
+    </script>
