@@ -2,14 +2,15 @@
 <?php
 $p = 'rech';
 $p = 'add-ent';
-$titre = 'Inscription des entreprises';
+$titre = ' ';
 require_once('lib/Db.php');
 require_once('./lib/functions.php');
-include './includes/header.php';
+
 if (isset($_GET['q']) && !empty($_GET['q'])) {
     $q = trim($_GET['q']);
     $q1 = trim(($_GET['q']));
-    $q = trim(addslashes($_GET['q']));
+    $titre.="". $q1."| Résultat de la recherche"; 
+    $q = Parser(trim(addslashes($_GET['q'])));
     $start = 0;
     $offset = 10;
     $db = connect();
@@ -27,6 +28,7 @@ if (isset($_GET['q']) && !empty($_GET['q'])) {
 
     //print_r($reponses);
 }
+include './includes/header.php';
 ?>
 <div>
     <?php
@@ -40,10 +42,19 @@ if (isset($_GET['q']) && !empty($_GET['q'])) {
         <?php
         if (isset($q)) {
             ?>
-            <h4 class="bloc_mot_search ">Résultat de la recherche pour : <small class="text-muted"><?= ($q1) ?></small></h4>
+            <p class="bloc_mot_search ">Résultat de la recherche pour  <small class="text-muted"><?= ($q1) ?></small><br>
             <?php
+              if($q!=$q1 && trim($q)!=''){
+            ?>
+            <a class="" href="search.php?q=<?= ($q) ?>">Vous vous dire : <?=($q);?></a>
+              <?php
         }
         ?>
+            </p>
+
+            <?php
+        }
+            ?>
         <?php
         if (isset($reponses) && count($reponses)) {
             ?>
@@ -68,25 +79,29 @@ if (isset($_GET['q']) && !empty($_GET['q'])) {
                         $write = FALSE;
                     }
                     ?>
-                    <?= ($write) ? "<h3 id='resultat$nm'><a href=''>" . $nom_entreprise . "</a></h3>" : ''; ?>
+                    <?= ($write) ? "<h3 id='resultat$nm'><a href='entreprise.php?id=".$nm."'>" . $nom_entreprise . "</a></h3>" : ''; ?>
                     <li >
-                        <p class="question_liste2">
-                            <?= isset($the_question['libelle']) ? ($the_question['libelle']) : '' ?> </b>
+                        <p class="question_liste2 pad0 m0">
+                            <a href='entreprise.php?id=<?=$nm;?>'>&RightTriangle; <?= isset($the_question['libelle']) ? ($the_question['libelle']) : '' ?> </b></a>
                         </p>
 
-                        <p class="reponse_liste" id="art_c_<?= ($nm); ?>">
+                        <p class="reponse_liste pad0 m0" id="art_c_<?= ($nm); ?>">
                             <?php
                             $reponse['reponse'] = $reponse['reponse'];
                             $aff_rep = $reponse['reponse'];
                             $rep = truncate(trim($reponse['reponse']), 250, " ...", TRUE);
                             $sdetails = FALSE;
-                            if (strlen($aff_rep) > 250) {
+                            if (strlen($aff_rep) > 350) {
                                 $sdetails = TRUE;
                             }
+                            if($write) {
                             ?>
                             <?= isset($rep) ? (gras_Search($rep, $q) ) : '' ?>
+                            <?php
+                            }
+                            ?>
                         </p>
-                        <?php
+                       <!-- <?php
                         if ($sdetails) {
                             ?>
                             <div class="reponse_liste hidden" id="art_o_<?= ($nm); ?>">
@@ -98,7 +113,7 @@ if (isset($_GET['q']) && !empty($_GET['q'])) {
                             </div>
                             <?php
                         }
-                        ?>
+                        ?>-->
                     </li>
                     <?php
                     (isset($tmpnom) && $nom_entreprise == $tmpnom) ? "<b>" . $tmpnom . "</b>" : '<hr>';
@@ -109,11 +124,8 @@ if (isset($_GET['q']) && !empty($_GET['q'])) {
             </ul>
             <?php
         } else {
-            ?>
-            <div>
-                <ul id="search-list">
-                    <li>
-                        <div >
+            ?>          
+                        <div class="card" >
                             <img id="iconsearch" src="<?= ('assets/images/icon_search.png'); ?>" alt="Recherche">
 
                             <h2 class="text-center"> Aucun résultat trouvé </h2>
@@ -124,9 +136,6 @@ if (isset($_GET['q']) && !empty($_GET['q'])) {
                                 <li>Recherchez en saisissant le nom d'une entreprise donnée</li>
                             </ul>
                         </div> 
-                    </li>
-                </ul>
-            </div>
             <?php
         }
         ?>

@@ -28,7 +28,7 @@
                     }
                     ?>
                     <ul class='menu-login no-link  inline fright'>
-                        <li><a class="text-muted" href="categories.php?id=<?= (isset($categorie_id) ? $categorie_id : ''); ?>"><?= (isset($categorie) ? ($categorie) : ''); ?></a></li>
+                        <!--li><a class="text-muted" href="categories.php?id=<?= (isset($categorie_id) ? $categorie_id : ''); ?>"><?= (isset($categorie) ? ($categorie) : ''); ?></a></li-->
                         <li><a  class=" text-mini" href="logout.php">Déconnexion</a></li>
                     </ul>
                     <?php

@@ -7,9 +7,12 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <meta charset="UTF-8">
         <title> <?= isset($titre) ? $titre . ' - Toutes les réponses à vos questions' : 'Questions et réponses pour vos clients'; ?></title>
         <meta charset="utf-8" >
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
         <!--bigdataapp-160115 Latest compiled and minified CSS 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -37,6 +40,13 @@ and open the template in the editor.
                 font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
                 margin: 0;
                 font-size: 14px;
+            }
+             a:visited, a:visited{
+                color: #609;
+            }
+            a{
+                color: #1a0dab;
+                text-decoration: none;
             }
             fieldset{
                 margin: auto;
@@ -87,7 +97,7 @@ and open the template in the editor.
                 width: 99%;
                 padding-left: 1%;
                 background: #ffffff;
-                height: 40px;
+                min-height: 40px;
                 padding-top: 5px;
                 padding-bottom: 10px;
                 border-bottom: 1px solid #eee;
@@ -97,17 +107,20 @@ and open the template in the editor.
             }
             #bloc_resultat_recherche{
                 min-height: 700px;
-                background: #f0f0f0;
+               /* background: #f0f0f0;*/
                 padding-bottom: 50px;
             }
             .bloc_resultat1{
+                min-width: 55%;
+                max-width: 95%;
                 width: 55%;
                 margin: auto;
             }
 
             #mini-logo{
-                height: 45px;
+                max-height: 45px;
                 margin: auto;
+                max-width: 100%;
             }
             .bloc_logo1{
                 float: left;
@@ -494,13 +507,7 @@ and open the template in the editor.
                 display: block;
                 color: #888888;
             }
-            #search-list a:visited, a:visited{
-                color: #609;
-            }
-            #search-list a, a{
-                color: #1a0dab;
-                text-decoration: none;
-            }
+            
             #search-list  h3{
 
             }
@@ -539,9 +546,15 @@ and open the template in the editor.
                 padding-left: 15px;
             }
             #search-list>li:hover{
-                box-shadow: rgba(10, 10, 10, 0.1980392) 0px 2px 10px;
+                //box-shadow: rgba(10, 10, 10, 0.1980392) 0px 2px 10px;
                 transition: all ease 2s;
             }
+             #search-list>li:nth(old){
+
+             }
+             #search-list>li:nth(old){
+                
+             }
             .bloc_mot_search small{color: #2e91c3}
             .bloc_mot_search{
                 padding: 10px 10px 10px 15px;
@@ -551,12 +564,25 @@ and open the template in the editor.
                 /*background: #f3fbff;*/
                 /*background: #fff;*/
             }
+          .question_liste2,  .question_liste2 a{
+                margin: 0;
+                padding: 0;
+                font-size: 15px;
+                font-weight: 400;
+                color: #408e22;
+            }
+            #search-list li>p{
+                padding: 4px 0 0 ;
+                margin: 0;
+            }
             #search-list>li{
-                padding: 10px 15px;
+                /*padding: 10px 15px;*/
                 width: auto;
+                color: #777777;
                 list-style-type: none;
-                background: #FFF;
-                box-shadow: rgba(10, 10, 10, 0.0980392) 0px 2px 3px;
+                border-bottom: 0px solid #ddd;
+               /* background: #FFF;
+                box-shadow: rgba(10, 10, 10, 0.0980392) 0px 2px 3px;*/
                 margin-bottom: 3px;
             }
             .card,.card2{

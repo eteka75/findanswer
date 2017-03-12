@@ -12,7 +12,9 @@ function connect() {
     $password = '';
     //$host = '172.10.245.23';
     $host = '127.0.0.1';
-    $dns = 'sqlite:qr.sqlite';
+    $dir=dirname(__DIR__).'/db/qr.db';
+    //exit();
+    $dns = 'sqlite:'.$dir;
     $options = array(
         PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'
     );
@@ -320,4 +322,34 @@ function truncate($string, $max_length = 30, $replacement = '', $trunc_at_space 
         $max_length = $space_position;
 
     return substr_replace($string, $replacement, $max_length);
+}
+function Parser($motscles='')
+{
+   //Petit nettoyage
+    $motscles = strtolower(trim($motscles));
+    $motscles = str_replace(array(",","-",".",":",";","'")," ",$motscles);
+    $motscles = str_replace("   "," ",$motscles);
+    $motscles = str_replace("  "," ",$motscles);
+    
+    //Decomposition des mots-cles mot à mot
+    $mots = explode(" ",$motscles);
+    
+    $petitmots = array("une","les","aux","des","mais","ton","tes","son","ses","ces","est","donc","car");
+    
+    //Boucle d'analyse de chaques mots
+    $nbmots = count($mots);
+    for ($i = 0; $i < $nbmots; $i++)
+        {
+        if (strlen($mots[$i]) < 3)
+            {
+            $mots[$i] = "";
+            }
+        else if (in_array($mots[$i],$petitmots))
+            {
+            $mots[$i] = "";
+            }
+        }
+        
+    //Recolle les mots
+    return $motscles = implode(" ",$mots);
 }
