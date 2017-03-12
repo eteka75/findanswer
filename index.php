@@ -1,7 +1,7 @@
 
 <?php
 $p = 'home';
-$titre = 'Tout ce que vous recherchez sur vos entreprises';
+echo $titre = 'Tout ce que vous recherchez sur vos entreprises';
 include './includes/config.php';
 include './includes/header.php';
 
