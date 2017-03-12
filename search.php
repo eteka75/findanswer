@@ -73,6 +73,7 @@ include './includes/header.php';
 //                    $nom_entreprise= (isset($tmpnom) && $reponse['nom']=$tmpnom)? '':$reponse['nom'];
                     $nm = $reponse['entreprise_id'];
                     $qm = $reponse['question_id'];
+                    $tm = $reponse['type_id'];
                     if (!in_array($nm, $TabEnt)) {
                         $TabEnt[$i++] = $nm;
                         $write = TRUE;
@@ -80,10 +81,10 @@ include './includes/header.php';
                         $write = FALSE;
                     }
                     ?>
-                    <?= ($write) ? "<h3 id='resultat$nm'><a href='entreprise.php?id=".$nm."&q_id=".$qm."'>" . $nom_entreprise . "</a></h3>" : ''; ?>
+                    <?= ($write) ? "<h3 id='resultat$nm'><a href='entreprise.php?id=".$nm."'>" . $nom_entreprise . "</a></h3>" : ''; ?>
                     <li >
                         <p class="question_liste2 pad0 m0">
-                            <a href='entreprise.php?id=<?=$nm;?>&q_id=<?=$nm;?>'>&RightTriangle; <?= isset($the_question['libelle']) ? ($the_question['libelle']) : '' ?> </b></a>
+                            <a href='entreprise.php?id=<?=$nm;?>&type_id=<?=$tm;?>&q_id=<?=$qm;?>'>&RightTriangle; <?= isset($the_question['libelle']) ? ($the_question['libelle']) : '' ?> </b></a>
                         </p>
 
                         <p class="reponse_liste pad0 m0" id="art_c_<?= ($nm); ?>">
