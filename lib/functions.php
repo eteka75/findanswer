@@ -18,7 +18,12 @@ function connect() {
     $options = array(
         PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'
     );
-    return $db = new Db($dns);
+    try {
+        return $db = new Db($dns);
+    } catch (Exception $e) {
+        echo $e->getMessage();
+    }
+    return NULL;
     /*
       $pdo='';
       try {
