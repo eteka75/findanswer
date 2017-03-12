@@ -9,12 +9,7 @@ $db = connect(); /* Connexion à la base de donnée */
         // Mot tapé par l'utilisateur
         $q = strtolower(htmlentities($_GET['query']));
        
-        // Connexion à la base de données
-        try {
-            $bdd = new PDO('mysql:host=localhost;dbname=test', 'root', '');
-        } catch(Exception $e) {
-            exit('Impossible de se connecter à la base de données.');
-        }
+        
  
         // Requête SQL
        // $requete = "SSELECT * FROM country WHERE country_name LIKE '". $q ."%' LIMIT 0, 10";
