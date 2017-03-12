@@ -12,7 +12,7 @@ function connect() {
     $password = '';
     //$host = '172.10.245.23';
     $host = '127.0.0.1';
-    $dir=dirname(__DIR__).'/db/qr.db';
+    $dir=dirname(__DIR__).'/db/qr.sqlite';
     //exit();
     $dns = 'sqlite:'.$dir;
     $options = array(
@@ -47,7 +47,79 @@ function controle_login($page = 'login.php') {
         }
     }
 }
-
+function invColor($color='rgb(0,0,0,0)'){
+    $col1=str_replace("rgb", "", $color);
+    $col2=str_replace("(", "", $col1);
+    $col3=str_replace(")", "", $col2);
+    $expcol=explode(",", $col3);
+    $next_color='rgb(';
+    $a=1;
+    $b=count($expcol);
+    foreach ($expcol as $c) {
+        $v=255-((int)$c);
+        if($a==$b){
+            $next_color.=''.$v.''; 
+        }else{
+            $next_color.=''.$v.','; 
+        }
+      $a++;
+    }
+    $next_color.=')';
+    return $next_color;
+}
+function principal_color($image){
+    echo $url=dirname(__DIR__).'/'.$image;
+    $im = imagecreatefrompng($url);
+    $rgb = imagecolorat($im, 10, 15);
+    $r = ($rgb >> 16) & 0xFF;
+    $g = ($rgb >> 8) & 0xFF;
+    $b = $rgb & 0xFF;
+    var_dump($r, $g, $b);
+    $color="rgb(".$r.",".$g.",".$b.")";
+    return $color;
+/*
+    $ImageChoisie = imagecreatefromjpeg($image);
+    $TailleImageChoisie = getimagesize($image);
+     
+    $largeur=0;
+    $hauteur=0;
+    $rouge=0;
+    $vert=0;
+    $bleu=0;
+     
+    while($hauteur<=$TailleImageChoisie[1]){
+     
+        while($largeur<=$TailleImageChoisie[0]){
+     
+ 
+            $rgb=imagecolorat($ImageChoisie, $largeur, $hauteur);
+            $r = ($rgb >> 16) & 0xFF; 
+            $g = ($rgb >> 8) & 0xFF; 
+            $b = $rgb & 0xFF;
+             
+            $rouge+=$r;
+            $vert+=$g;
+            $bleu+=$b;
+             
+            $largeur++;
+ 
+    }
+    $hauteur++;
+    $largeur=0;
+    }
+     
+    $total_pixel=$TailleImageChoisie[0]*$TailleImageChoisie[1];
+    $rouge=round($rouge/$total_pixel);
+    $bleu=round($bleu/$total_pixel);
+    $vert=round($vert/$total_pixel);
+     
+     
+    $couleur='rgb('.$rouge.','.$vert.','.$bleu.')';
+    return $couleur;
+ */
+     
+}
+     
 function login($db, $conditions,$page='index.php') {
     //$db= connect();
     $is_connected = FALSE;
@@ -65,7 +137,10 @@ function login($db, $conditions,$page='index.php') {
     }
     return NULL;
 }
-
+function getIp()
+{
+  return isset($_SERVER["SERVER_ADDR"])?$_SERVER["SERVER_ADDR"]:'0'; 
+}
 function date_fr($date, $format = NULL) {
     $nom_jour_fr = array("Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi");
     $mois_fr = Array("", "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août",

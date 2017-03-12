@@ -6,7 +6,11 @@ include './includes/config.php';
 $db = connect();
 $categorie_id = 1;
 $list_quests = $db->select('categories', "1", 'ORDER BY nom');
-
+if (isset($_SESSION['user'])) {
+    $user = unserialize($_SESSION['user']);
+} else {
+    redirect("login.php");
+}
 $listquest = '';
 
 $error = NULL;

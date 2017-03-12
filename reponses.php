@@ -4,7 +4,18 @@ $p = 'rep';
 $titre = 'Gestion des réponses aux question';
 include './includes/config.php';
 $db = connect();
+if (isset($_SESSION['user'])) {
+    $user = unserialize($_SESSION['user']);
+} else {
+    redirect("login.php");
+}
+
+$user = unserialize($_SESSION['user']);
+$catid = $user['categorie_id'];
+$uid = $user['id'];
+//$list_qr=$db->
 include './includes/header.php';
+
 ?>
 <div>
     <?php

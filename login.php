@@ -43,8 +43,8 @@ include './includes/header.php';
     <form method="post" action="login.php">
         <div class="bloc_auto">
 
-            <div class="bloc_login has-shadow text-left">
-                <h3 class="page-title pad5_0 ">CONNECTEZ VOUS !</h3><br>
+            <div class="bloc_login has-shadow">
+                <h3 class="page-title btn3 light pad5_0 ">CONNECTEZ VOUS !</h3><br>
 
                 <?php
                 if (isset($error) && count($error)) {

@@ -31,7 +31,7 @@ include './includes/header.php';
         <h3 class="page-title">Mon compte </h3>
         <div class="pad10"><small><a href="update-compte.php" class="btn1 no-link pull-right text-mini">Modifier mon compte</a></small></div>
         <?php
-         $logo = (isset($user['logo']) && $user['logo'] != '') ? $user['logo'] : 'uploads/default.png';
+          $logo = (isset($user['logo']) && trim($user['logo']) != '') ? $user['logo'] : 'uploads/default.jpeg';
         ?>
 
 

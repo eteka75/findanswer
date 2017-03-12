@@ -89,9 +89,17 @@ and open the template in the editor.
             .bloc_login{
                 width: 290px;
                 margin:40px auto 0;
-                padding:20px 15px ;
+                padding:10px 15px ;
+                text-align: center;
 
             }
+            .img-logo-profil{
+                max-height: 100px;
+                max-width: 200px;
+                border-radius: 50%;
+                margin: 10px auto;
+            }
+            .light{font-weight: 100;}
             .bloc_search_head{
                 top: 0;
                 width: 99%;
@@ -239,7 +247,7 @@ and open the template in the editor.
                 /*background: red;*/
                 height: 500px; 
             }
-            .menu-onglet{
+            .menu-onglet2,.menu-onglet{
                 margin: 15px 0 0;
                 padding: 0;
                 display: inline-block;
@@ -248,7 +256,7 @@ and open the template in the editor.
                 height: 21px;
                 width: 200px;;
             }
-            .menu-onglet li a{
+            .menu-onglet2 a,.menu-onglet li a{
                 color: #333333;
                 text-decoration: none;
                 font-size: 14px;
@@ -256,11 +264,20 @@ and open the template in the editor.
             .menu-onglet li.active a{
                 color: #2e91c3
             }
+
             .menu-onglet li.active{
                 /* border:1px solid  #ddd;*/
                 /*border-bottom: 2px solid #2e91c3;*/
                 border-left: 4px solid #f44336;
                 font-weight: bold;
+            }
+            .menu-onglet2 >li{
+                list-style-type: none;
+                padding: 5px 10px;
+                font-weight: 500;
+            }
+            .menu-onglet2 >li:hover{
+                background: #f5f5f5;
             }
             .menu-onglet li:hover a{
                 color: #2e91c3;
@@ -377,6 +394,9 @@ and open the template in the editor.
             .btn1{
                 background: #2495E0;
                 border: 1px solid #6268E1;
+            }
+            a.btn1 ,a.btn2 {
+                color: #ffffff !important;
             }
             .btn1,.btn2{
                 padding: 8px 15px;
@@ -563,6 +583,19 @@ and open the template in the editor.
                 color: #797474;
                 /*background: #f3fbff;*/
                 /*background: #fff;*/
+            }
+            .cadre-entreprise{
+                min-height: 200px;
+                background:  #555;
+                color: #fefefe;
+                padding: 10px 0 20px;
+            }
+            .cadre-entreprise h1{
+                font-size: 35px;
+                text-align: center;
+                display: block;
+                margin:0px 0;
+                padding-top: 30px;
             }
           .question_liste2,  .question_liste2 a{
                 margin: 0;

@@ -11,7 +11,7 @@ $user = NULL;
 if (isset($_SESSION['user'])) {
     $user = unserialize($_SESSION['user']);
 } else {
-    redirect("/");
+    redirect("login.php");
 }
 include './includes/header.php';
 ?>
@@ -28,13 +28,13 @@ include './includes/header.php';
     </div>
     <div class="bloc_content">
         <?php
-        $logo = (isset($user['logo']) && $user['logo'] != '') ? $user['logo'] : 'uploads/default.png';
+        $logo = (isset($user['logo']) && trim($user['logo']) != '') ? $user['logo'] : 'uploads/default.jpeg';
         ?>
-        <!--h4 class="page-title ">
-            <img class="img-logo-home text-mini" src="<?= ($logo) ?>" alt="<?= $user['nom'] ?>">
+        <h4 class=" ">
+            
 
             <?php
-            
+            //echo invColor('rgb(2,5,2)');
             $idcat = isset($user['categorie_id']) ? $user['categorie_id'] : 0;
             $categ = $db->selectOne('categories', "id='" . $idcat . "'");
             //print_r($categ);
@@ -43,16 +43,16 @@ include './includes/header.php';
                 $nomcat = utf8_encode($categ["nom"]);
             }
              $user_id=$user['id'];
-            $my_reponses=$db->executeSelect('entreprise_question',"count(id_question) as nb_questions","id_entreprise='".$user_id."'")->fetch();
+            $my_reponses=$db->executeSelect('entreprise_question',"count(question_id) as nb_questions","entreprise_id='".$user_id."'")->fetch();
             $reponses=($my_reponses['nb_questions']);
              $user_id=$user['id'];
              
             $my_suggest=$db->executeSelect('suggestion_questions',"count(id) as nb_sug","entreprise_id='".$user_id."'")->fetch();
             $suggest=($my_suggest['nb_sug']);
             ?>
-        </h4-->
+        </h4>
         
-        <h4 class="page-title ">Tableau de board <small class="text-mini text-muted pull-rights">(<?php print($user['nom']);?>)</small></h4>
+        <h4 class="page-title "><img class="img-logo-home text-mini" src="<?= ($logo) ?>" alt="<?= $user['nom'] ?>"> Tableau de board <small class="text-mini text-muted pull-rights">(<?php print($user['nom']);?>)</small></h4>
         <div class="text-mini">
             <div>
                 <h4 class="pad0 text-muted">Activités</h4>

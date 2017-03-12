@@ -7,6 +7,11 @@ $db = connect();
 if (!isset($_SESSION['user'])) {
     redirect("login.php");
 }
+if (isset($_SESSION['user'])) {
+    $user = unserialize($_SESSION['user']);
+} else {
+    redirect("login.php");
+}
 $user = unserialize($_SESSION['user']);
 $catid = $user['categorie_id'];
 $uid = $user['id'];

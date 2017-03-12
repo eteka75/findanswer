@@ -98,18 +98,20 @@ include './includes/header.php';
 
                     <div class="bloc_middle text-left">
                         <div>
+                        <a href="add-type.php" class="text-mini pull-rights">Ajouter un type</a>
                             <label class="text-mini">Type de réponse</label>
-                            <div class="text-right pad">
+                            <div class="text-rights pad">
 
-                                <a href="add-type.php" class="text-mini pull-rights">Ajouter un type</a>
+                                
                             </div>
-                            <a href="add-question.php" class="text-mini pull-rights">Ajouter une question</a>
+                            
                             <select  name="typequestion" class="input-std control" >
                                 <option value="">-Sélectionnez-</option>
                                 <?= isset($typesq) ? $typesq : ''; ?>
                             </select>
                         </div>
                         <div>
+                        <a href="add-question.php" class="text-mini pull-rights">Ajouter une question</a>
                             <label class="text-mini">Sélectionnez la question</label>
                             <select  name="question" class="input-std control" >
                                 <option value="">-Sélectionnez-</option>
