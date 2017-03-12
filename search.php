@@ -24,7 +24,7 @@ if (isset($_GET['q']) && !empty($_GET['q'])) {
       $COMPTEUR+= count($reponse2);
       $reponse3 = $db->select('questions', "questions.libelle LIKE '%" . $q . "%'", " LIMIT $start, $offset");
       $COMPTEUR+= count($reponse3); */
-    $reponses = $db->executeSelect('entreprise_question,entreprises', '*', "question_id in (select id from questions where questions.libelle LIKE '%" . $q . "%' OR entreprises.nom LIKE '%" . $q . "%' ORDER BY LIBELLE) AND (entreprise_question.entreprise_id=entreprises.id)", " ORDER BY entreprise_id LIMIT $start, $offset")->fetchAll();
+    $reponses = $db->executeSelect('entreprise_question,entreprises', '*', "question_id in (select id from questions where questions.libelle LIKE '%" . $q . "%' OR questions.libelle LIKE '%" . $q1 . "%' OR entreprises.nom LIKE '%" . $q . "%' OR entreprises.nom LIKE '%" . $q1 . "%' ORDER BY LIBELLE) AND (entreprise_question.entreprise_id=entreprises.id)", " ORDER BY entreprise_id LIMIT $start, $offset")->fetchAll();
 
     //print_r($reponses);
 }

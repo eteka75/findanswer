@@ -5,7 +5,7 @@ $titre = 'Tout ce que vous recherchez sur vos entreprises';
 include './includes/config.php';
 include './includes/header.php';
 
-$db = connect(); 
+//$db = connect(); 
 
 
 /* Connexion à la base de donnée */
@@ -39,6 +39,7 @@ $db = connect();
             onSelect: function (suggestion) {
                 $("#rechercheform").submit();
                 //$('#selction-ajax').html('You selected: ' + suggestion.slug + ', ' + suggestion.data);
+                $('#rechercheforms').submit();
             }
 
         });

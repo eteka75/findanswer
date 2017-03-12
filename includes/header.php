@@ -366,7 +366,7 @@ and open the template in the editor.
               //  box-shadow:0 0 10px 0 rgba(0,0,0,.125);
                 width: auto;
                  float: left;
-                 padding: 10px 20px;
+                 padding: 10px 20px 50px;
                  background: #ffffff;
                  min-height: 550px;
                  border-left:1px solid #dddddd;

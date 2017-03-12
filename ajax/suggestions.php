@@ -8,9 +8,7 @@ $db = connect(); /* Connexion à la base de donnée */
  if(isset($_GET['query'])) {
         // Mot tapé par l'utilisateur
         $q = strtolower(htmlentities($_GET['query']));
-        if(strlen($q)<5){
-            return;
-        }
+       
         // Connexion à la base de données
         try {
             $bdd = new PDO('mysql:host=localhost;dbname=test', 'root', '');
@@ -20,7 +18,7 @@ $db = connect(); /* Connexion à la base de donnée */
  
         // Requête SQL
        // $requete = "SSELECT * FROM country WHERE country_name LIKE '". $q ."%' LIMIT 0, 10";
-        $data=$db->select('questions',"libelle LIKE '%". $q ."%'",' LIMIT 0, 10');
+        $data=$db->select('questions',"libelle LIKE '%". $q ."%' AND id IN (SELECT question_id FROM entreprise_question)",' LIMIT 0, 10');
         // Exécution de la requête SQL
         //$resultat = $bdd->query($requete) or die(print_r($bdd->errorInfo()));
         $suggestions=NULL;
