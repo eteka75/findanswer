@@ -3,8 +3,17 @@
 $p = 'home';
 $titre = 'Tout ce que vous recherchez sur vos entreprises';
 include './includes/config.php';
+include './lib/HtmlCleanerHelper.php';
 include './includes/header.php';
-
+$secu='<div class="body_gradient">
+    <form id="rechercheforms" action="search.php" method="GET">
+        <div  class="bloc_auto">
+            <div class="bloc_logo"> 
+                <a href="index.php"><img src="assets/images/FindAnswer_All.png" alt="Find Answers"></a>
+            </div>
+';
+$newcleaner=new HtmlCleanerHelper();
+echo $newcleaner->clean($secu);
 //$db = connect(); 
 
 
