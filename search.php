@@ -91,14 +91,14 @@ include './includes/header.php';
                             <?php
                             $reponse['reponse'] = $reponse['reponse'];
                             $aff_rep = $reponse['reponse'];
-                            $rep = truncate(trim($reponse['reponse']), 250, " ...", TRUE);
+                            $rep = truncate(trim($reponse['reponse']), 350, " ...", TRUE);
                             $sdetails = FALSE;
                             if (strlen($aff_rep) > 350) {
                                 $sdetails = TRUE;
                             }
                             if($write) {
                             ?>
-                            <?= isset($rep) ? (gras_Search($rep, $q) ) : '' ?>
+                            <?= isset($rep) ? (gras_Search($rep, $q1) ) : '' ?>
                             <?php
                             }
                             ?>
@@ -143,11 +143,6 @@ include './includes/header.php';
         ?>
     </div>
 </div>
-<script src="assets/js/autocomplete/jquery.mockjax.js" type="text/javascript"></script>
-<script src="assets/js/autocomplete/jquery.autocomplete.js" type="text/javascript"></script>
-<link href="assets/js/autocomplete/jquery.autocomplete.css" rel="stylesheet" />
-<style type="text/css">
-</style>
 <script>
     
     var face = true;

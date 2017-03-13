@@ -41,6 +41,9 @@ if(isset($_GET['id'])){
                 $letype=$letypes[0];
             }
         }
+        
+    }else{
+        redirect('404.php');
     }
 }
 $entreprises = $db->select("entreprises", '1', 'ORDER BY created_at');
@@ -134,7 +137,7 @@ require_once './includes/header_search.php';
             ?>
             <div class="no-content ">
             <img src="assets/images/icon-bulb.png" class="info-image" alt="Welcome">
-            <h3>Bienvenue sur la page d'information de <?=''?></h3>
+            <h3>Bienvenue sur la page d'information de <a href="entreprise.php?id=<?=($ent_id)?$ent_id:'0';?>"><?=$unom?></a></h3>
             <p class="text-center">Vous retrouverez ici toutes les informations relatives à notre structure  </p>
             
             <div class="text-left ">
@@ -168,7 +171,7 @@ require_once './includes/header_search.php';
          
           //Sets background to 3rd color in the palette.
           $('#couverture').css('background-color', 'rgb('+cp[2][0]+','+cp[2][1]+','+cp[2][2]+')');
-          var invR=255-cp[2][0],invG=255-cp[2][1],invB=255-cp[2][2];
+          var invR=255-cp[2][0]/2,invG=255-cp[2][1]/2,invB=255-cp[2][2]/2;
           $('#couverture').css('color', 'rgb('+invR+','+invG+','+invB+')');
         }
 

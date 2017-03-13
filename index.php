@@ -20,7 +20,7 @@ include './includes/header.php';
             </div>
 
             <div class="bloc_search">
-                <input class="search-input2" required="required" value="<?= isset($_GET['q']) ? htmlentities(trim($_GET['q'])) : NULL; ?>"  type="search" placeholder="Saisissez le nom d'une entreprise pour commencer" name="q" id="search-entreprise">
+                <input class="search-input2" required="required" value="<?= isset($_GET['q']) ? htmlentities(trim($_GET['q'])) : NULL; ?>"  type="search" placeholder="Salut, posez moi une question concernant une entreprise !" name="q" id="search-entreprise">
             </div>
         </div>
     </form>

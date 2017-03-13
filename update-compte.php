@@ -100,7 +100,7 @@ include './includes/header.php'; /* inlusion de l'entete */
 </div>
 <form method="post" action="update-compte.php" enctype="multipart/form-data">
     <div id="bloc_middle">
-        <div class="card">
+        <div class="card no-shadow">
             <h2>Modification de compte</h2>
             <fieldset>
                 <legend>Information sur l'entreprise</legend>

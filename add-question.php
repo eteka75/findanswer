@@ -77,10 +77,20 @@ if (isset($_POST['add-quest'])) {
     }
 }
 if (isset($list_quests)) {
+    if(!isset($_SESSION['user'])){
     foreach ($list_quests as $cat) {
         $selected = (isset($quest_cat,$cat['id']) && in_array($cat['id'], $quest_cat)) ? 'selected' : '';
         
         $listquest .= "<option $selected value='" . $cat['id'] . "'>" . $cat['nom'] . "</option>";
+    }
+    }else{
+        $cat=$user['categorie_id'];
+        $catlibs=$db->select('categories',"id='".$cat."'",'limit 1');
+        if(count($catlibs)){
+            $catlib=$catlibs[0];
+            $listquest .= "<option selected value='" . $catlib['id'] . "'>" . $catlib['nom'] . "</option>";
+        }
+        
     }
 }
 include './includes/header.php';

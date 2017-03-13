@@ -14,10 +14,8 @@ $user = unserialize($_SESSION['user']);
 $catid = $user['categorie_id'];
 $uid = $user['id'];
 $list_qr=$db->select('questions',"id IN (select question_id FROM entreprise_question WHERE entreprise_id='".$uid."')");
-$list_questions=NULL;
-if(count($list_qr)){
-    $list_questions=$list_qr;
-}
+$list_questions=$list_qr;
+
 include './includes/header.php';
 
 ?>
@@ -38,7 +36,6 @@ include './includes/header.php';
 
             <div>
                 <?php
-              
                 if (isset($list_questions) && !(isset($_GET['id_quest']))) {
 
                 if(count($list_questions)){

@@ -95,7 +95,7 @@ and open the template in the editor.
             }
             .img-logo-profil{
                 //max-height: 100px;
-                max-width: 150px;
+                max-width: 100px;
                 border-radius: 50%;
                 margin: 10px auto;
             }
@@ -369,7 +369,7 @@ and open the template in the editor.
                  padding: 10px 20px 50px;
                  background: #ffffff;
                  min-height: 550px;
-                 border-left:1px solid #dddddd;
+                 border-left:1px solid #f2f4fb;
                      color: #4b4f56;
                 font-size: 18px;
                 line-height: 24px;
@@ -388,6 +388,7 @@ and open the template in the editor.
                 line-height: 30px;
                 margin: 0px 0;
                 padding: 10px 0 15px;
+                font-weight: 100;
             }
             .bloc_search{
                 padding:  0;
@@ -396,7 +397,8 @@ and open the template in the editor.
                 text-align: center;
             }
             .search-input:focus{
-
+                box-shadow: none;
+                border: 1px solid #47a3d1;
             } 
             .menu-login{
                 padding: 0;
@@ -437,7 +439,6 @@ and open the template in the editor.
             }
             .search-input,.search-input2{ 
                 width: 90%;
-                padding: 5px 10px;
                 font-size: 15px;
                 font-weight: 400;
                 width: 100%;
@@ -446,7 +447,7 @@ and open the template in the editor.
                 border-radius: 1px;
                 margin: 4px auto;
                 /*padding: 12px 20px 12px 10px;*/
-                padding: 5px 10px 10px 5px;
+                padding: 5px 10px 7px 10px;
                 box-shadow: 0PX 0px 0px rgba(0,0,0,.084);
                 border-radius: 2px;
                 background: #ffffff;
@@ -667,13 +668,14 @@ and open the template in the editor.
                 /*background: #fff;*/
             }
             .cadre-entreprise{
-                min-height: 100px;
-                background:  #555;
-                color: #fefefe;
+                /*min-height: 100px;
+                background:  #555;*/
+                background: #fff;
+                color: #47a3d1;
                 padding: 10px 0 20px;
             }
             .cadre-entreprise h1{
-                font-size: 35px;
+                font-size: 30px;
                 text-align: center;
                 display: block;
                 margin: 0;
@@ -773,9 +775,9 @@ and open the template in the editor.
                         <li>
                             <a href="reponses.php">Questions-Réponses</a>
                         </li>
-                        <li>
+                        <!--li>
                             <a href="statistiques.php">Statistiques</a>
-                        </li>
+                        </li-->
                         <li>
                             <a href="logout.php">Déconnexion(<b><?= (isset($nom) ? $nom : ''); ?></b>)</a>
                         </li>

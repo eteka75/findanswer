@@ -6,7 +6,7 @@
             </div>
             <div class="bloc_search2">
 
-                <input class="search-input" value="<?= isset($_GET['q']) ? htmlentities(trim($_GET['q'])) : NULL; ?>"  type="search" placeholder="Saisissez le nom d'une entreprise pour commencer" name="q" id="search-entreprise">
+                <input class="search-input" value="<?= isset($_GET['q']) ? htmlentities(trim($_GET['q'])) : NULL; ?>"  type="search" placeholder="Salut, posez moi une question concernant une entreprise !" name="q" id="search-entreprise">
 
             </div>
             <div class="bloc_search3 text-mini">
@@ -38,6 +38,11 @@
         </div>
     </form>
 </div>
+
+<script src="assets/js/autocomplete/jquery.mockjax.js" type="text/javascript"></script>
+<script src="assets/js/autocomplete/jquery.autocomplete.js" type="text/javascript"></script>
+<link href="assets/js/autocomplete/jquery.autocomplete.css" rel="stylesheet" />
+
 <script>
     $(function () {
         'use strict';
